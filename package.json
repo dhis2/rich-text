@@ -2,20 +2,10 @@
   "name": "@dhis2/rich-text",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/cjs/index.js",
-  "module": "./build/es/index.js",
-  "files": [
-    "build"
-  ],
+  "main": "./index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src/",
-    "prebuild": "rimraf ./build/* && yarn test && yarn lint",
-    "build": "yarn build:commonjs && yarn build:es",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir build/cjs --ignore spec.js",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir build/es --ignore spec.js",
-    "build:umd": "cross-env && webpack -p",
-    "watch": "yarn build:es --  --watch"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,21 +18,14 @@
   },
   "homepage": "https://github.com/dhis2/rich-text#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "babel-jest": "^23.6.0",
-    "cross-env": "^5.2.0",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "jest": "^23.6.0",
-    "prettier": "^1.14.3",
-    "rimraf": "^2.6.2",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "jest": "^23.6.0"
   },
   "jest": {
     "transform": {
@@ -50,7 +33,9 @@
     }
   },
   "dependencies": {
+    "@babel/core": "^7.1.2",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "markdown-it": "^8.4.2"
   }
 }
